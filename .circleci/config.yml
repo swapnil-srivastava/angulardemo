@@ -18,6 +18,7 @@ jobs:
 
     steps:
       - checkout
+      - setup_remote_docker
 
       # Download and cache dependencies
       - restore_cache:
@@ -36,4 +37,16 @@ jobs:
       # run tests!
       - run: yarn ng build --prod
       # - run: yarn ng test --watch false
+
+      # build the docker image inside circle ci
+
+      - run:
+          command: |
+            docker build -t swapnil.azurecr.io/angular-apache2:v1 .
+      - run:
+          command: |
+            docker login --username $DOCKER_AZ_USER --password $DOCKER_AZ_PASSWORD swapnil.azurecr.io
+      - run:
+          command: |
+            docker push swapnil.azurecr.io/angular-apache2:v1
 
