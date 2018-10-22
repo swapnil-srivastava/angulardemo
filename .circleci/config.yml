@@ -35,7 +35,11 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn ng build --prod
+
+      # already ng build is being executed in docker file to create dist folder
+      # - run: yarn ng build --prod
+
+      # TODO fix the test to run ng test
       # - run: yarn ng test --watch false
 
       # build the docker image inside circle ci
