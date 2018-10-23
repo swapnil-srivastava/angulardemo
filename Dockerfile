@@ -5,44 +5,54 @@
 # ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
 
-#########################
+##############################
 ### build environment ########
 ### Multi Stage Docker #######
-#########################
+##############################
 
-# base image
-FROM node:8.11.2 as builder
+#####################################
+# not building the app with multi
+# stage docker as it taking more time
+# in circle ci build as the cache for
+# docker is not ultized in circle ci
+# for docker and every creation of
+# docker build in circle ci build
+# a fresh docker image
+#####################################
 
-ARG ANGULAR_VERSION=7.0.2
+# # base image
+# FROM node:8.11.2 as builder
 
-# ENV http_proxy ${http_proxy}
-# ENV https_proxy ${https_proxy}
+# ARG ANGULAR_VERSION=7.0.2
 
-# set working directory
-RUN mkdir /app
+# # ENV http_proxy ${http_proxy}
+# # ENV https_proxy ${https_proxy}
 
-WORKDIR /app
+# # set working directory
+# RUN mkdir /app
 
-# install and cache app dependencies
-COPY package.json package-lock.json /app/
+# WORKDIR /app
 
-RUN npm install -g npm@latest && npm install
+# # install and cache app dependencies
+# COPY package.json package-lock.json /app/
 
-RUN npm install -g @angular/cli@${ANGULAR_VERSION} --unsafe-perm
+# RUN npm install -g npm@latest && npm install
 
-COPY . /app/
+# RUN npm install -g @angular/cli@${ANGULAR_VERSION} --unsafe-perm
 
-# generate build using npm scripts
-RUN npm run build -- --prod
+# COPY . /app/
 
-COPY /httpd/ /app/httpd/
+# # generate build using npm scripts
+# RUN npm run build -- --prod
 
-ENV http_proxy ""
-ENV https_proxy ""
+# COPY /httpd/ /app/httpd/
 
-# ##########################
+# ENV http_proxy ""
+# ENV https_proxy ""
+
+# ##############################
 # ### production apache2 #######
-# ##########################
+# ##############################
 
 #base image
 FROM ubuntu:16.04
@@ -50,9 +60,9 @@ FROM ubuntu:16.04
 # ENV http_proxy ${http_proxy}
 # ENV https_proxy ${https_proxy}
 
-#=================
+#======================
 # Install apache2 httpd
-#=================
+#======================
 
 RUN apt-get update && \
     apt-get install -y apache2
@@ -75,7 +85,8 @@ COPY ./httpd/000-default.conf /etc/apache2/sites-enabled/
 COPY ./httpd/.htaccess /var/www/html/
 
 # Copying dist folder from builder docker above and copy to relevant apache directory
-COPY --from=builder /app/dist/angulardemo /var/www/html/
+COPY ./dist/angulardemo /var/www/html/
+# COPY --from=builder /app/dist/angulardemo /var/www/html/  // not using multi stage docker
 
 EXPOSE 4200
 
