@@ -45,6 +45,9 @@ jobs:
 
       # build the docker image inside circle ci
 
+      # deploying to firebase using the command below
+      - run: yarn firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+
       - run:
           command: |
             docker build -t swapnil.azurecr.io/angular-apache2:v1 .
