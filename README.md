@@ -36,3 +36,8 @@ Firebase token should be generated in order to get the app up and running.
 `FIREBASE_TOKEN` to the build enviornment for safe keeping so the next command can pick up this and deploy
 
 `firebase deploy --token "$FIREBASE_TOKEN"`  use this command to deploy in ci 
+
+
+## Firebase help
+
+firebase.json file has a key `public` if it is equal to the `""` then it means that it is will take everything is the root directory
