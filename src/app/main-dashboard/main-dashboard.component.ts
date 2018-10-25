@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
@@ -7,7 +7,13 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './main-dashboard.component.html',
   styleUrls: ['./main-dashboard.component.scss'],
 })
-export class MainDashboardComponent {
+export class MainDashboardComponent implements OnInit {
+
+
+  toggleValue: boolean;
+  disabled: boolean;
+  color: string;
+  
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -30,4 +36,12 @@ export class MainDashboardComponent {
   );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    console.log('value of toggle', this.toggleValue);
+  }
+
+  callingToggle(): void {
+    console.log('value of toggle on change', this.toggleValue);
+  }
 }
