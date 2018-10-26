@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -16,7 +18,11 @@ import {
   MatMenuModule,
   MatSlideToggleModule
 } from '@angular/material';
+
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+
+// Feature Module
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,8 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
