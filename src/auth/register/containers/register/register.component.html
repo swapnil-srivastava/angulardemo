@@ -1,6 +1,7 @@
 <div>
-  Register
-  <app-authform>
-
+  <app-authform (submitted)="onRegister($event)">
+    <h1>Register Content</h1>
+    <button type="submit" class="button">Create Account</button>
+    <button class="redirect" [routerLink]="['/auth/login']">Go to Login</button>
   </app-authform>
 </div>

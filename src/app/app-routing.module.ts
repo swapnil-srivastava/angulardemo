@@ -6,7 +6,8 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 const routes: Routes = [
   { path: 'home', component: MainDashboardComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: '**', redirectTo: 'home', pathMatch: 'full'}
+  // commenting the 404 path in the routing
+  // { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({

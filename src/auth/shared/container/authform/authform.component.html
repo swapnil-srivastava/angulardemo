@@ -1,3 +1,38 @@
-<p>
-  authform works!
-</p>
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <ng-content select="h1"></ng-content>
+
+    <label for="email">
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter Email address"
+        formControlName="email">
+    </label>
+
+    <div *ngIf="emailFormat">
+      Email format is invalid
+    </div>
+
+    <label for="password">
+      <input
+        id="password"
+        type="email"
+        placeholder="Enter password"
+        formControlName="password">
+    </label>
+
+    <div *ngIf="passwordIsInvalid">
+      Password is required
+    </div>
+
+    <ng-content select=".error"> </ng-content>
+
+    <ng-content select=".button"> </ng-content>
+
+    <ng-content select=".redirect"> </ng-content>
+
+
+  </form>
+</div>
