@@ -84,7 +84,7 @@ export class MainDashboardComponent implements OnInit {
     );
   }
 
-  prev(index): void {
+  prev(): void {
     // TODO: Index not coming , work around using findIndex
     let indexCheck;
 
@@ -108,7 +108,7 @@ export class MainDashboardComponent implements OnInit {
 
   }
 
-  next(index): void {
+  next(): void {
     // TODO: Index not coming , work around using findIndex
     let indexCheck;
 
