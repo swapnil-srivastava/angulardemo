@@ -51,12 +51,3 @@ import { AuthModule } from '../auth/auth.module';
 })
 export class AppModule { }
 
-  // // Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyCPcPiPTzHQ_AbeGShr7SGbLABw6A74WFQ",
-  //   authDomain: "swapnilsrivastava-c1748.firebaseapp.com",
-  //   databaseURL: "https://swapnilsrivastava-c1748.firebaseio.com",
-  //   projectId: "swapnilsrivastava-c1748",
-  //   storageBucket: "swapnilsrivastava-c1748.appspot.com",
-  //   messagingSenderId: "511527106927"
-  // };

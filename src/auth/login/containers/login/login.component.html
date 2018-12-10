@@ -1,6 +1,9 @@
 <div>
   <app-authform (submitted)="onLogin($event)">
     <h1>Login Content</h1>
+    <div class="error" *ngIf="error">
+      {{ error }}
+    </div>
     <button type="submit" class="button">Login Now</button>
     <button class="redirect" [routerLink]="['/auth/register']">Go to Register</button>
   </app-authform>
