@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
+import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 
+// Angular Material Module
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -19,10 +20,14 @@ import {
   MatSlideToggleModule
 } from '@angular/material';
 
-import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+// Angular CDK Modules
+import { LayoutModule } from '@angular/cdk/layout';
 
 // Feature Module
 import { AuthModule } from '../auth/auth.module';
+
+// Angular Flex Layout Module Beta
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,8 @@ import { AuthModule } from '../auth/auth.module';
     MatCardModule,
     MatMenuModule,
     MatSlideToggleModule,
-    AuthModule
+    AuthModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

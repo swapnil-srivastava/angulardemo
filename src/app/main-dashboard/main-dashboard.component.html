@@ -1,31 +1,82 @@
 <div class="grid-container">
 
   <h1 class="mat-h1">Swapnil Srivastava</h1>
+  <div fxFill>
+      <div fxLayout.gt-sm="row" fxLayout.xs="column" fxLayoutGap="10px">
+          <button mat-raised-button fxFlex fxFlex="5" (click)="prev(i)">Prev</button>
+            <div *ngFor="let card of cards$ | async; let i = index" fxFlex>
+                <mat-card>
+                <mat-card-title>
+                  <!-- Title -->
+                  {{card.title}} {{cards.length}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                  Subtitle
+                </mat-card-subtitle>
+
+                <mat-card-content>
+                    Content Here
+                </mat-card-content>
+
+                <img mat-card-image>
+
+                <mat-card-actions>
+                  <button mat-raised-button color="primary">Button 1</button>
+                </mat-card-actions>
+
+                <mat-card-footer>
+                  footer
+                </mat-card-footer>
+            </mat-card>
+            </div>
+          <button mat-raised-button fxFlex="5" (click)="next(i)">Next</button>
+      </div>
+  </div>
+
+
+
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+
+      <mat-grid-tile *ngFor="let card of cards$ | async" [colspan]="card.cols" [rowspan]="card.rows">
+
       <mat-card class="dashboard-card">
+
         <mat-card-header>
+
           <mat-card-title>
             {{card.title}}
+
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
+
             <mat-menu #menu="matMenu" xPosition="before">
               <button mat-menu-item>Expand</button>
               <button mat-menu-item>Remove</button>
             </mat-menu>
+
           </mat-card-title>
+
         </mat-card-header>
+
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-          <div> <mat-slide-toggle
-            [checked]="toggleValue"
-            [disabled]="disabled"
-            [color]="color"
-            (click)="callingToggle()">Dashboard</mat-slide-toggle></div>
+
+          <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Consequatur quam rerum sunt voluptatibus quo, esse cumque non nemo ex
+            obcaecati perferendis repudiandae vel incidunt mollitia accusantium animi
+            exercitationem maxime nobis.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Repellendus deleniti dolorem officia? Quam magni eum ut
+            inventore sapiente ex ipsa deserunt assumenda impedit, harum praesentium cum.
+            Earum qui placeat voluptatem!
+          </div>
+
         </mat-card-content>
+
       </mat-card>
+
     </mat-grid-tile>
+
   </mat-grid-list>
 
 </div>
