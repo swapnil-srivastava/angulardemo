@@ -41,3 +41,10 @@ Firebase token should be generated in order to get the app up and running.
 ## Firebase help
 
 firebase.json file has a key `public` if it is equal to the `""` then it means that it is will take everything is the root directory
+
+
+## Angular Universal 
+
+`ng add @nguniversal/express-engine --clientProject angular.io-example`
+
+`npm run build:ssr` && `npm run serve:ssr`  --- in order

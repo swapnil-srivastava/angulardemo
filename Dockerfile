@@ -85,7 +85,7 @@ COPY ./httpd/000-default.conf /etc/apache2/sites-enabled/
 COPY ./httpd/.htaccess /var/www/html/
 
 # Copying dist folder from builder docker above and copy to relevant apache directory
-COPY ./dist/angulardemo /var/www/html/
+COPY ./dist/browser /var/www/html/
 # COPY --from=builder /app/dist/angulardemo /var/www/html/  // not using multi stage docker
 
 EXPOSE 4200
