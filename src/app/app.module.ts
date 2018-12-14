@@ -39,7 +39,7 @@ import { environment } from '../environments/environment';
     MainDashboardComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
