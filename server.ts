@@ -48,7 +48,9 @@ app.get('*', (req, res) => {
   res.render('index', { req });
 });
 
+// TODO: Remove function from here as we are setting up firebase functions using firebase cli tool
 export let ssrapp = functions.https.onRequest(app);
+
 
 // Start up the Node server
 app.listen(PORT, () => {
