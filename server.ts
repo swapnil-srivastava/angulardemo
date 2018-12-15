@@ -1,6 +1,10 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
+
+import * as functions from 'firebase-functions';
+
 import {enableProdMode} from '@angular/core';
+
 // Express Engine
 import {ngExpressEngine} from '@nguniversal/express-engine';
 // Import module map for lazy loading
@@ -27,7 +31,7 @@ app.engine('html', ngExpressEngine({
   providers: [
     provideModuleMap(LAZY_MODULE_MAP)
   ]
-})).catch((err) => console.log(err));
+}));
 
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
@@ -43,6 +47,8 @@ app.get('*.*', express.static(DIST_FOLDER, {
 app.get('*', (req, res) => {
   res.render('index', { req });
 });
+
+export let ssrapp = functions.https.onRequest(app);
 
 // Start up the Node server
 app.listen(PORT, () => {
