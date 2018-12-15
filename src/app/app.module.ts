@@ -54,8 +54,8 @@ import { environment } from '../environments/environment';
     MatSlideToggleModule,
     AuthModule,
     FlexLayoutModule,
-    HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
