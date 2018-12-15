@@ -27,7 +27,7 @@ app.engine('html', ngExpressEngine({
   providers: [
     provideModuleMap(LAZY_MODULE_MAP)
   ]
-}));
+})).catch((err) => console.log(err));
 
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
