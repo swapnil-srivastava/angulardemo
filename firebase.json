@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/angulardemo",
+    "public": "dist/browser",
     "ignore": [
       "firebase.json",
       ".firebaserc",
