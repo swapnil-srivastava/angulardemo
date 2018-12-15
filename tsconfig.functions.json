@@ -6,6 +6,6 @@
     "outDir": "./functions"
   },
   "files": [
-    "index.ts"
+    "server.ts"
   ]
 }

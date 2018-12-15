@@ -52,7 +52,7 @@ app.get('*', (req, res) => {
 export let ssrapp = functions.https.onRequest(app);
 
 
-// Start up the Node server
-app.listen(PORT, () => {
-  console.log(`Node Express server listening on http://localhost:${PORT}`);
-});
+// // Start up the Node server
+// app.listen(PORT, () => {
+//   console.log(`Node Express server listening on http://localhost:${PORT}`);
+// });
