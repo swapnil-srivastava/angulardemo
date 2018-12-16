@@ -17,7 +17,9 @@
     "preserve:functions": "npm run build:functions",
     "serve:functions": "firebase serve --only functions,hosting",
     "buildnsever:functions": "npm run build:functions && npm run serve:functions",
-    "buildnsever:ssr": "npm run build:ssr && npm run serve:ssr"
+    "buildnsever:ssr": "npm run build:ssr && npm run serve:ssr",
+    "firebase:install": "npm --prefix functions install",
+    "firebase:deploy": "firebase deploy --non-interactive"
   },
   "private": true,
   "dependencies": {

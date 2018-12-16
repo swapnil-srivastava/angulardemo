@@ -29,6 +29,11 @@ import { AuthModule } from '../auth/auth.module';
 
 // Angular Flex Layout Module Beta
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+// Angular PWA
+// Note: Service worker will make the server side render not work
+// for the basic route in this case its "/home" but after deleting the
+// cache and going directly to the route it would render the page
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
