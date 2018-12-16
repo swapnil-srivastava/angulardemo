@@ -45,6 +45,15 @@ jobs:
 
       # build the docker image inside circle ci
 
+      # TODO: rewrite the package.json scripts to use yarn instead of npm
+
+      # to Create functions/dist/browser using ng build --prod
+      # to Create functions/dist/server using ng run angulardemo:server:production
+      - run: yarn ng build --prod && ng run angulardemo:server:production
+
+      # to create index.js in functions using tsc -p server/tsconfig.functions.json
+      - run: yarn tsc -p server/tsconfig.functions.json
+
       # deploying to firebase using the command below
       - run: yarn firebase deploy --token=$FIREBASE_TOKEN --non-interactive
 
