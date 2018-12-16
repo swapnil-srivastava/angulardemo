@@ -3,9 +3,9 @@
     "module": "commonjs",
     "target": "es2015",
     "rootDir": ".",
-    "outDir": "./functions"
+    "outDir": "../functions"
   },
   "files": [
-    "server.ts"
+    "index.ts"
   ]
 }

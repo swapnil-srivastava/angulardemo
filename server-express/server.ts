@@ -1,8 +1,6 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
-// import * as functions from 'firebase-functions';
-
 import {enableProdMode} from '@angular/core';
 
 // Express Engine
@@ -20,10 +18,10 @@ enableProdMode();
 const app = express();
 
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), 'dist/browser');
+const DIST_FOLDER = join(process.cwd(), 'functions/dist/browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('../functions/dist/server/main');
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -47,10 +45,6 @@ app.get('*.*', express.static(DIST_FOLDER, {
 app.get('*', (req, res) => {
   res.render('index', { req });
 });
-
-// TODO: Remove function from here as we are setting up firebase functions using firebase cli tool
-// export let ssrapp = functions.https.onRequest(app);
-
 
 // Start up the Node server
 app.listen(PORT, () => {

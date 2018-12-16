@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/browser",
+    "public": "functions/dist/browser",
     "ignore": [
       "firebase.json",
       ".firebaserc",
@@ -20,7 +20,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "function": "ssrapp"
       }
     ]
   },

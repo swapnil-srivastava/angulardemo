@@ -48,13 +48,13 @@ jobs:
       # deploying to firebase using the command below
       - run: yarn firebase deploy --token=$FIREBASE_TOKEN --non-interactive
 
-      - run:
-          command: |
-            docker build -t swapnil.azurecr.io/angular-apache2:v1 .
-      - run:
-          command: |
-            docker login --username $DOCKER_AZ_USER --password $DOCKER_AZ_PASSWORD swapnil.azurecr.io
-      - run:
-          command: |
-            docker push swapnil.azurecr.io/angular-apache2:v1
+      # - run:
+      #     command: |
+      #       docker build -t swapnil.azurecr.io/angular-apache2:v1 .
+      # - run:
+      #     command: |
+      #       docker login --username $DOCKER_AZ_USER --password $DOCKER_AZ_PASSWORD swapnil.azurecr.io
+      # - run:
+      #     command: |
+      #       docker push swapnil.azurecr.io/angular-apache2:v1
 
