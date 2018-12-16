@@ -1,7 +1,7 @@
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
-import * as functions from 'firebase-functions';
+// import * as functions from 'firebase-functions';
 
 import {enableProdMode} from '@angular/core';
 
@@ -49,10 +49,10 @@ app.get('*', (req, res) => {
 });
 
 // TODO: Remove function from here as we are setting up firebase functions using firebase cli tool
-export let ssrapp = functions.https.onRequest(app);
+// export let ssrapp = functions.https.onRequest(app);
 
 
-// // Start up the Node server
-// app.listen(PORT, () => {
-//   console.log(`Node Express server listening on http://localhost:${PORT}`);
-// });
+// Start up the Node server
+app.listen(PORT, () => {
+  console.log(`Node Express server listening on http://localhost:${PORT}`);
+});

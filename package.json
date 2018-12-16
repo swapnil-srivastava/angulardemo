@@ -12,7 +12,10 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run angulardemo:server:production",
-    "build:functions": "tsc -p tsconfig.functions.json"
+    "build:functions": "tsc -p tsconfig.functions.json",
+    "serve:functions": "node functions/server",
+    "buildnsever:functions": "npm run build:functions && npm run serve:functions",
+    "buildnsever:ssr": "npm run build:ssr && npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
