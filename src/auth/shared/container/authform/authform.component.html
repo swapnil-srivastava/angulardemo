@@ -4,11 +4,14 @@
     <ng-content select="h1"></ng-content>
 
     <label for="email">
+      <mat-form-field>
       <input
+        matInput
         id="email"
         type="email"
         placeholder="Enter Email address"
         formControlName="email">
+      </mat-form-field>
     </label>
 
     <div *ngIf="emailFormat">
@@ -17,8 +20,9 @@
 
     <label for="password">
       <input
+        matInput
         id="password"
-        type="email"
+        type="password"
         placeholder="Enter password"
         formControlName="password">
     </label>
