@@ -37,6 +37,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+// Angular i18n
+// import localeFr from '@angular/common/locales/fr';
+// import localeFr from '@angular/common/locales/;
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +64,7 @@ import { environment } from '../environments/environment';
     MatSlideToggleModule,
     AuthModule,
     FlexLayoutModule,
-    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule
   ],
   providers: [],
