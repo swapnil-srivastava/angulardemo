@@ -2,29 +2,63 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
+      [opened]="!isOpen">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" [routerLink]="['/home']">Home</a>
       <a mat-list-item href="#" [routerLink]="['/auth']">Auth -> Login</a>
       <a mat-list-item href="#" [routerLink]="['/auth/register']">Register</a>
-      <a mat-list-item href="https://swapnilsrivastava-ab702.firebaseapp.com/" target=_blank>React</a>
-      <a mat-list-item href="https://swapnilsrivastava-ef92c.firebaseapp.com/#/" target=_blank>Vue </a>
-      <a mat-list-item href="https://swapnilsrivatava-1bdcd.firebaseapp.com/" target=_blank>Polymer 2</a>
-      <a mat-list-item href="https://swapnilsrivastava-c4555.firebaseapp.com/" target=_blank>Polymer 3</a>
+      <mat-accordion>
+        <mat-expansion-panel class="expansion-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Projects
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+              <a mat-list-item href="https://swapnilsrivastava-ab702.firebaseapp.com/" target=_blank>
+                <span mat-line>React</span>
+                <mat-icon mat-list-icon svgIcon="react"></mat-icon>
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <a mat-list-item href="https://swapnilsrivastava-ef92c.firebaseapp.com/#/" target=_blank>
+                <span mat-line>Vue</span>
+                <mat-icon mat-list-icon svgIcon="vue"></mat-icon>
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <a mat-list-item href="https://swapnilsrivatava-1bdcd.firebaseapp.com/" target=_blank>
+                <span mat-line>Polymer 2</span>
+                <mat-icon mat-list-icon>polymer</mat-icon>
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+              <a mat-list-item href="https://swapnilsrivastava-c4555.firebaseapp.com/" target=_blank>
+                <span mat-line>Polymer 3</span>
+                <mat-icon mat-list-icon>polymer</mat-icon>
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center">
       <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="isOpen">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Under Active Devlopment and more ..........</span>
+      <div class="button-container" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayoutGap="10px">
+            <button mat-flat-button [color]="rlaHome.isActive ? 'accent' : false" [routerLink]="['/home']" #rlaHome="routerLinkActive" [routerLinkActive]="['is-active']" >Home</button>
+            <button mat-flat-button [color]="rlaAbout.isActive ? 'accent' : false" [routerLink]="['/about']" #rlaAbout="routerLinkActive" [routerLinkActive]="['is-active']">About me</button>
+            <button mat-flat-button [color]="rlaContact.isActive ? 'accent' : false" [routerLink]="['/contact']" #rlaContact="routerLinkActive" [routerLinkActive]="['is-active']">Contact me</button>
+        </div>
+        <button mat-flat-button disabled>Login ( In Progress )</button>
+      </div>
     </mat-toolbar>
 
     <!-- Add Content Here -->

@@ -15,6 +15,8 @@ export class MainNavComponent {
       map(result => result.matches)
     );
 
+  isOpen: boolean = true ;
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 
 }

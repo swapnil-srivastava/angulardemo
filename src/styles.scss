@@ -19,8 +19,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
 // $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
-$candy-app-primary: mat-palette($my-yellow);
-$candy-app-accent:  mat-palette($my-yellow, A200, A100, A400);
+$candy-app-primary: mat-palette($my-black);
+$candy-app-accent:  mat-palette($my-black, A200, A100, A400);
 $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
 
@@ -42,5 +42,10 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
   @include angular-material-theme($dark-theme);
 }
 
+.expansion-panel {
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+}
 
 

@@ -18,7 +18,8 @@ import {
   MatGridListModule,
   MatCardModule,
   MatMenuModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatExpansionModule
 } from '@angular/material';
 
 // Angular CDK Modules
@@ -36,6 +37,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 // cache and going directly to the route it would render the page
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AboutMeComponent } from './container/about-me/about-me.component';
+import { ContactMeComponent } from './container/contact-me/contact-me.component';
 
 // Angular i18n
 // import localeFr from '@angular/common/locales/fr';
@@ -46,7 +49,9 @@ import { environment } from '../environments/environment';
   declarations: [
     AppComponent,
     MainNavComponent,
-    MainDashboardComponent
+    MainDashboardComponent,
+    AboutMeComponent,
+    ContactMeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -62,6 +67,7 @@ import { environment } from '../environments/environment';
     MatCardModule,
     MatMenuModule,
     MatSlideToggleModule,
+    MatExpansionModule,
     AuthModule,
     FlexLayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
