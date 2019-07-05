@@ -40,6 +40,19 @@ import { environment } from '../environments/environment';
 import { AboutMeComponent } from './container/about-me/about-me.component';
 import { ContactMeComponent } from './container/contact-me/contact-me.component';
 
+import { StoreModule } from '@ngrx/store';
+
+import { reducers, metaReducers } from './store/reducers';
+
+import { EffectsModule } from '@ngrx/effects';
+
+import { AppEffects } from './app.effects';
+
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+
+// Not to be used in production
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 // Angular i18n
 // import localeFr from '@angular/common/locales/fr';
 // import localeFr from '@angular/common/locales/;
@@ -71,7 +84,11 @@ import { ContactMeComponent } from './container/contact-me/contact-me.component'
     AuthModule,
     FlexLayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([AppEffects]),
+    StoreRouterConnectingModule.forRoot(),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
