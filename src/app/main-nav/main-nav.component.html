@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [class.unicorn-dark-theme]="otherTheme">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -6,8 +6,15 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" [routerLink]="['/home']">Home</a>
-      <a mat-list-item href="#" [routerLink]="['/auth']">Auth -> Login</a>
-      <a mat-list-item href="#" [routerLink]="['/auth/register']">Register</a>
+      <a mat-list-item href="#"
+         *ngIf="(isHandset$ | async)"
+         [routerLink]="['/auth/login']" #rlaHome="routerLinkActive"
+         [routerLinkActive]="['is-active']">Login</a>
+      <a mat-list-item href="#"
+          *ngIf="(isHandset$ | async)"
+          #rlaHome="routerLinkActive"
+         [routerLinkActive]="['is-active']"
+         [routerLink]="['/auth/register']">Register</a>
       <mat-accordion>
         <mat-expansion-panel class="expansion-panel">
           <mat-expansion-panel-header>
@@ -53,14 +60,40 @@
       </button>
       <div class="button-container" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
         <div fxLayoutGap="10px">
-            <button mat-flat-button [color]="rlaHome.isActive ? 'accent' : false" [routerLink]="['/home']" #rlaHome="routerLinkActive" [routerLinkActive]="['is-active']" >Home</button>
-            <button mat-flat-button [color]="rlaAbout.isActive ? 'accent' : false" [routerLink]="['/about']" #rlaAbout="routerLinkActive" [routerLinkActive]="['is-active']">About me</button>
-            <button mat-flat-button [color]="rlaContact.isActive ? 'accent' : false" [routerLink]="['/contact']" #rlaContact="routerLinkActive" [routerLinkActive]="['is-active']">Contact me</button>
+            <button mat-flat-button
+                    [color]="rlaHome.isActive ? 'accent' : false"
+                    [routerLink]="['/home']" #rlaHome="routerLinkActive"
+                    [routerLinkActive]="['is-active']" >Home</button>
+            <button mat-flat-button
+                    [color]="rlaAbout.isActive ? 'accent' : false"
+                    [routerLink]="['/about']" #rlaAbout="routerLinkActive"
+                    [routerLinkActive]="['is-active']">About me</button>
+            <button mat-flat-button
+                    [color]="rlaContact.isActive ? 'accent' : false"
+                    [routerLink]="['/contact']" #rlaContact="routerLinkActive"
+                    [routerLinkActive]="['is-active']">Contact me</button>
         </div>
-        <button mat-flat-button disabled>Login ( In Progress )</button>
+        <div fxLayoutGap="10px">
+            <button *ngIf="!(isHandset$ | async)" mat-flat-button
+                    [color]="rlaLogin.isActive ? 'accent' : false"
+                    [routerLink]="['/auth/login']" #rlaLogin="routerLinkActive"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    [routerLinkActive]="['is-active']">Login</button>
+            <button *ngIf="!(isHandset$ | async)" mat-flat-button
+                    [color]="rlaRegister.isActive ? 'accent' : false"
+                    [routerLink]="['/auth/register']" #rlaRegister="routerLinkActive"
+                    [routerLinkActiveOptions]="{exact: true}"
+                    [routerLinkActive]="['is-active']">Sign Up</button>
+            <mat-menu #appMenu="matMenu">
+              <button mat-menu-item (click)="activateDarkTheme()">Dark theme</button>
+            </mat-menu>
+
+            <button mat-icon-button [matMenuTriggerFor]="appMenu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+        </div>
       </div>
     </mat-toolbar>
-
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
 

@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 
 // Services
 import { AuthService } from '../../../shared/services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -14,10 +15,12 @@ export class RegisterComponent implements OnInit {
   error: string;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private titleService: Title
   ) { }
 
   ngOnInit() {
+    this.titleService.setTitle('SignUp');
   }
 
   async onRegister(event: FormGroup) {

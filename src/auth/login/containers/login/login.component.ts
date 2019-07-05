@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 // Service
 import { AuthService } from '../../../shared/services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +17,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) { }
 
   ngOnInit() {
+    this.titleService.setTitle('Login');
   }
 
   async onLogin(event: FormGroup) {

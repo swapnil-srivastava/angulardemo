@@ -1,42 +1,52 @@
 <div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <ng-content select="h1"></ng-content>
+      <div fxLayout="column" fxLayoutAlign="start strech" fxLayoutGap="5px">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <label for="email" fxFlex="30">
+            Email:
+          </label>
+          <div fxFlex>
+            <mat-form-field>
+              <input
+                matInput
+                id="email"
+                type="email"
+                placeholder="Enter Email address"
+                autocomplete="off"
+                formControlName="email">
+            </mat-form-field>
+            <mat-error *ngIf="emailFormat">Email format is invalid</mat-error>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <label for="password" fxFlex="30">
+            Password:
+          </label>
+          <div fxFlex>
+            <mat-form-field>
+              <input
+              matInput
+              id="password"
+              type="password"
+              placeholder="Enter password"
+              formControlName="password">
+            </mat-form-field>
+            <mat-error *ngIf="passwordIsInvalid">
+                Password is required
+            </mat-error>
+          </div>
+        </div>
+      </div>
+      <ng-content select=".error"> </ng-content>
 
-    <ng-content select="h1"></ng-content>
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <ng-content select=".button"> </ng-content>
+          <ng-content select=".redirect"> </ng-content>
+      </div>
 
-    <label for="email">
-      <mat-form-field>
-      <input
-        matInput
-        id="email"
-        type="email"
-        placeholder="Enter Email address"
-        formControlName="email">
-      </mat-form-field>
-    </label>
-
-    <div *ngIf="emailFormat">
-      Email format is invalid
     </div>
-
-    <label for="password">
-      <input
-        matInput
-        id="password"
-        type="password"
-        placeholder="Enter password"
-        formControlName="password">
-    </label>
-
-    <div *ngIf="passwordIsInvalid">
-      Password is required
-    </div>
-
-    <ng-content select=".error"> </ng-content>
-
-    <ng-content select=".button"> </ng-content>
-
-    <ng-content select=".redirect"> </ng-content>
-
 
   </form>
 </div>

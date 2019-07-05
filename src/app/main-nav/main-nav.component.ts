@@ -16,7 +16,12 @@ export class MainNavComponent {
     );
 
   isOpen: boolean = true ;
+  otherTheme: boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  activateDarkTheme() {
+    this.otherTheme = !this.otherTheme;
+  }
 
 }

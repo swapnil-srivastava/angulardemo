@@ -1,10 +1,10 @@
 <div>
   <app-authform (submitted)="onLogin($event)">
-    <h1>Login Content</h1>
+    <h1>Login</h1>
     <div class="error" *ngIf="error">
       {{ error }}
     </div>
-    <button mat-button type="submit" class="button">Login Now</button>
-    <button mat-button class="redirect" [routerLink]="['/auth/register']">Go to Register</button>
+    <button mat-raised-button color="accent" type="submit" class="button">Login Now</button>
+    <button mat-button class="redirect" [routerLink]="['/auth/register']">Sign Up</button>
   </app-authform>
 </div>

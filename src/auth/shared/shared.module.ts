@@ -12,6 +12,9 @@ import { AuthService } from './services/auth.service';
 // Material Module
 import { MatInputModule, MatButtonModule } from '@angular/material';
 
+// Angular Flex Layout Module Beta
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 export const ROUTES: Routes = [];
 
 @NgModule({
@@ -20,7 +23,8 @@ export const ROUTES: Routes = [];
     RouterModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ],
   declarations: [
     AuthformComponent
@@ -28,7 +32,8 @@ export const ROUTES: Routes = [];
   exports: [
     AuthformComponent,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule {
