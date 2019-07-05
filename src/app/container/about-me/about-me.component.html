@@ -1,3 +1,32 @@
-<p>
-  about-me works!
-</p>
+<div fxFill class="about-me-grid-container">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          Title
+
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item>Expand</button>
+            <!-- <button mat-menu-item>Remove</button> -->
+          </mat-menu>
+        </mat-card-title>
+
+      </mat-card-header>
+
+      <mat-card-content class="dashboard-card-content">
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Consequatur quam rerum sunt voluptatibus quo, esse cumque non nemo ex
+          obcaecati perferendis repudiandae vel incidunt mollitia accusantium animi
+          exercitationem maxime nobis.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Repellendus deleniti dolorem officia? Quam magni eum ut
+          inventore sapiente ex ipsa deserunt assumenda impedit, harum praesentium cum.
+          Earum qui placeat voluptatem!
+        </div>
+      </mat-card-content>
+    </mat-card>
+</div>
+
