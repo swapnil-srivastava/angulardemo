@@ -10,7 +10,7 @@ import { AuthformComponent } from './container/authform/authform.component';
 import { AuthService } from './services/auth.service';
 
 // Material Module
-import { MatInputModule, MatButtonModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
 
 // Angular Flex Layout Module Beta
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -24,7 +24,8 @@ export const ROUTES: Routes = [];
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule
   ],
   declarations: [
     AuthformComponent
@@ -33,7 +34,8 @@ export const ROUTES: Routes = [];
     AuthformComponent,
     MatInputModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule
   ]
 })
 export class SharedModule {

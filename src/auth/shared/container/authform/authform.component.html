@@ -1,8 +1,55 @@
-<div>
+<div class="auth-form-container">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div fxLayout="column" fxLayoutAlign="start center">
-      <ng-content select="h1"></ng-content>
-      <div fxLayout="column" fxLayoutAlign="start strech" fxLayoutGap="5px">
+      <!-- <ng-content select=".title"></ng-content> -->
+      <mat-card>
+        <mat-card-title><ng-content select=".title"></ng-content></mat-card-title>
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="start strech" fxLayoutGap="5px">
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+                <label for="email" fxFlex="30">
+                  Email:
+                </label>
+                <div fxFlex>
+                  <mat-form-field>
+                    <input
+                      matInput
+                      id="email"
+                      type="email"
+                      placeholder="Enter Email address"
+                      autocomplete="off"
+                      formControlName="email">
+                  </mat-form-field>
+                  <mat-error *ngIf="emailFormat">Email format is invalid</mat-error>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+                <label for="password" fxFlex="30">
+                  Password:
+                </label>
+                <div fxFlex>
+                  <mat-form-field>
+                    <input
+                    matInput
+                    id="password"
+                    type="password"
+                    placeholder="Enter password"
+                    formControlName="password">
+                  </mat-form-field>
+                  <mat-error *ngIf="passwordIsInvalid">
+                      Password is required
+                  </mat-error>
+                </div>
+              </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <ng-content select=".button"> </ng-content>
+            <ng-content select=".redirect"> </ng-content>
+        </mat-card-actions>
+      </mat-card>
+
+      <!-- <div fxLayout="column" fxLayoutAlign="start strech" fxLayoutGap="5px">
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
           <label for="email" fxFlex="30">
             Email:
@@ -38,13 +85,14 @@
             </mat-error>
           </div>
         </div>
-      </div>
+      </div> -->
+
       <ng-content select=".error"> </ng-content>
 
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
-          <ng-content select=".button"> </ng-content>
-          <ng-content select=".redirect"> </ng-content>
-      </div>
+      <!-- <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <ng-content select=".button"> </ng-content>
+        <ng-content select=".redirect"> </ng-content>
+      </div> -->
 
     </div>
 
