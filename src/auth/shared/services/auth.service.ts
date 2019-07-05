@@ -21,7 +21,12 @@ export class AuthService {
   auth$ = this.af.authState
             .pipe(tap(next => {
               if (!next) {
-                this.store.dispatch(new fromProfileActions.loadProfile(null));
+                // TODO: reset to initial state instead of passing null
+                this.store.dispatch(new fromProfileActions.loadProfile({
+                  email: null,
+                  uid: null,
+                  authenticated: false
+                }));
                 return;
               }
 
@@ -50,5 +55,9 @@ export class AuthService {
   loginUser(email: string, password: string) {
     return this.af.auth
         .signInWithEmailAndPassword(email, password);
+  }
+
+  logoutUser() {
+    return this.af.auth.signOut();
   }
 }

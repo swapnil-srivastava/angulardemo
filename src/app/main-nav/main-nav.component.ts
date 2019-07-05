@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 // Store
 import * as fromRoot from '../store/reducers';
 import { Store, select } from '@ngrx/store';
+import { AuthService } from 'src/auth/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-nav',
@@ -26,7 +28,9 @@ export class MainNavComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private store: Store<fromRoot.ProfileState> ) {}
+    private store: Store<fromRoot.ProfileState>,
+    private authService: AuthService,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.user$ = this.store.pipe(select(fromRoot.getProfile));
@@ -34,6 +38,11 @@ export class MainNavComponent implements OnInit {
 
   activateDarkTheme() {
     this.otherTheme = !this.otherTheme;
+  }
+
+  async logout() {
+    await this.authService.logoutUser();
+    // this.router.navigate(['/about']);
   }
 
 }

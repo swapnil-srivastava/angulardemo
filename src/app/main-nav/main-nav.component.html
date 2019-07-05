@@ -88,15 +88,19 @@
                     [routerLinkActive]="['is-active']">Sign Up</button>
             <mat-menu #appMenu="matMenu">
               <button mat-menu-item (click)="activateDarkTheme()">Dark theme</button>
+              <button mat-menu-item *ngIf="(user$ | async)?.authenticated" (click)="logout()">Logout</button>
             </mat-menu>
+
 
             <button mat-icon-button [matMenuTriggerFor]="appMenu">
               <mat-icon>more_vert</mat-icon>
             </button>
+
         </div>
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
+    {{user$ | async | json}}
     <router-outlet></router-outlet>
 
   </mat-sidenav-content>
