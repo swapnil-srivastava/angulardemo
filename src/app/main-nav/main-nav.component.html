@@ -88,6 +88,7 @@
                     [routerLinkActive]="['is-active']">Sign Up</button>
             <mat-menu #appMenu="matMenu">
               <button mat-menu-item (click)="activateDarkTheme()">Dark theme</button>
+              <button mat-menu-item (click)="getData()">Light theme</button>
               <button mat-menu-item *ngIf="(user$ | async)?.authenticated" (click)="logout()">Logout</button>
             </mat-menu>
 

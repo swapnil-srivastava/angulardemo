@@ -6,8 +6,10 @@ import { map } from 'rxjs/operators';
 // Store
 import * as fromRoot from '../store/reducers';
 import { Store, select } from '@ngrx/store';
-import { AuthService } from 'src/auth/shared/services/auth.service';
+import { AuthService } from '../../../src/auth/shared/services/auth.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-main-nav',
@@ -30,7 +32,9 @@ export class MainNavComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private store: Store<fromRoot.ProfileState>,
     private authService: AuthService,
-    private router: Router) {}
+    private router: Router,
+    private af: AngularFireAuth,
+    private afdb: AngularFireDatabase) {}
 
   ngOnInit(): void {
     this.user$ = this.store.pipe(select(fromRoot.getProfile));
@@ -38,6 +42,15 @@ export class MainNavComponent implements OnInit {
 
   activateDarkTheme() {
     this.otherTheme = !this.otherTheme;
+    const cUser = this.af.auth.currentUser;
+    const user$ = this.afdb.list(`users/${cUser.uid}`).push({name: 'Swapnil ', email: 'check1@test.com'});
+  }
+
+  getData() {
+    const cUser = this.af.auth.currentUser;
+    const user$ = this.afdb.list(`users/${cUser.uid}`).valueChanges().subscribe((val) => {
+      console.log('user', val); // working
+    });
   }
 
   async logout() {
