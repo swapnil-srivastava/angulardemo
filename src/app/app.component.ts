@@ -5,7 +5,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import * as fromRoot from './store/reducers';
 import { Store, select } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { User, AuthService } from 'src/auth/shared/services/auth.service';
+import { User, AuthService } from '../auth/shared/services/auth.service';
 
 @Component({
   selector: 'app-root',

@@ -7,8 +7,8 @@ import { tap } from 'rxjs/operators';
 
 // ngRx
 import { Store } from '@ngrx/store';
-import * as fromRoot from 'src/app/store/reducers';
-import * as fromProfileActions from 'src/app/store/actions/profile.action';
+import * as fromRoot from '../../../../src/app/store/reducers';
+import * as fromProfileActions from '../../../../src/app/store/actions/profile.action';
 
 export interface User {
   email: string;
