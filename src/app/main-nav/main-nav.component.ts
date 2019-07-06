@@ -10,6 +10,7 @@ import { AuthService } from '../../../src/auth/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-main-nav',
@@ -34,7 +35,8 @@ export class MainNavComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private af: AngularFireAuth,
-    private afdb: AngularFireDatabase) {}
+    private afdb: AngularFireDatabase,
+    private fs: AngularFirestore) {}
 
   ngOnInit(): void {
     this.user$ = this.store.pipe(select(fromRoot.getProfile));
@@ -42,15 +44,21 @@ export class MainNavComponent implements OnInit {
 
   activateDarkTheme() {
     this.otherTheme = !this.otherTheme;
-    const cUser = this.af.auth.currentUser;
-    const user$ = this.afdb.list(`users/${cUser.uid}`).push({name: 'Swapnil ', email: 'check1@test.com'});
+    // const cUser = this.af.auth.currentUser;
+    // const user$ = this.afdb.list(`users/${cUser.uid}`).push({name: 'Swapnil ', email: 'check1@test.com'});
+    this.fs.collection(`details`).add({
+      name: 'Swapnil Srivastava',
+      email: 'swapnil@firestore.com'
+    });
   }
 
   getData() {
-    const cUser = this.af.auth.currentUser;
-    const user$ = this.afdb.list(`users/${cUser.uid}`).valueChanges().subscribe((val) => {
-      console.log('user', val); // working
-    });
+    // const cUser = this.af.auth.currentUser;
+    // const user$ = this.afdb.list(`users/${cUser.uid}`).valueChanges().subscribe((val) => {
+    //   console.log('user', val); // working
+    // });
+
+    const user$ = this.fs.collection('details').valueChanges().subscribe(val => console.log('val in firestore', val)); // working firestore
   }
 
   async logout() {

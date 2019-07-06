@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, FirebaseAppConfig } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 // shared modules
 import { SharedModule } from './shared/shared.module';
@@ -38,6 +39,7 @@ export const fireConfig: FirebaseAppConfig = {
     AngularFireModule.initializeApp(fireConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     SharedModule.forRoot()
   ],
   declarations: []
