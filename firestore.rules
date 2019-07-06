@@ -1,0 +1,8 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // TODO: remove this 
+    match /{anything=**} {
+      allow read, write: if true;
+    }
+  }
+}
