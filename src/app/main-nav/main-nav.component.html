@@ -76,6 +76,11 @@
                     [disabled]="!(user$ | async)?.authenticated"
                     [routerLink]="['/contact']" #rlaContact="routerLinkActive"
                     [routerLinkActive]="['is-active']">Contact me</button>
+            <button mat-flat-button
+                    [color]="rlaPayment.isActive ? 'accent' : false"
+                    [disabled]="!(user$ | async)?.authenticated"
+                    [routerLink]="['/payment']" #rlaPayment="routerLinkActive"
+                    [routerLinkActive]="['is-active']">Payment</button>
         </div>
         <div fxLayoutGap="10px">
             <button *ngIf="!(isHandset$ | async) && !(user$ | async)?.authenticated" mat-flat-button

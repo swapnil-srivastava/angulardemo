@@ -39,6 +39,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AboutMeComponent } from './container/about-me/about-me.component';
 import { ContactMeComponent } from './container/contact-me/contact-me.component';
+import { PaymentPageComponent } from './container/payment-page/payment-page.component';
 
 import { StoreModule } from '@ngrx/store';
 
@@ -64,7 +65,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MainNavComponent,
     MainDashboardComponent,
     AboutMeComponent,
-    ContactMeComponent
+    ContactMeComponent,
+    PaymentPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
