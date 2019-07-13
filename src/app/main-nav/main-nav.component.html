@@ -68,10 +68,12 @@
                     [routerLinkActive]="['is-active']" >Home</button>
             <button mat-flat-button
                     [color]="rlaAbout.isActive ? 'accent' : false"
+                    [disabled]="!(user$ | async)?.authenticated"
                     [routerLink]="['/about']" #rlaAbout="routerLinkActive"
                     [routerLinkActive]="['is-active']">About me</button>
             <button mat-flat-button
                     [color]="rlaContact.isActive ? 'accent' : false"
+                    [disabled]="!(user$ | async)?.authenticated"
                     [routerLink]="['/contact']" #rlaContact="routerLinkActive"
                     [routerLinkActive]="['is-active']">Contact me</button>
         </div>
