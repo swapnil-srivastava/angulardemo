@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../../../src/app/store/reducers';
 import * as fromProfileActions from '../../../../src/app/store/actions/profile.action';
-
+import * as firebase from 'firebase/app';
 export interface User {
   email: string;
   uid: string;
@@ -53,8 +53,13 @@ export class AuthService {
   }
 
   loginUser(email: string, password: string) {
+    // let provider = new firebase.auth.GoogleAuthProvider();
+    // provider.addScope('profile');
+    // provider.addScope('email');
+    // provider.addScope('openid');
     return this.af.auth
         .signInWithEmailAndPassword(email, password);
+        // .signInWithPopup(provider);
   }
 
   logoutUser() {

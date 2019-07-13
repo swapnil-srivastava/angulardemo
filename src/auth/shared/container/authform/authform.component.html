@@ -1,8 +1,8 @@
-<div class="auth-form-container">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div fxLayout="column" fxLayoutAlign="start center">
+<div class="auth-form-container" fxFill>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" fxFill>
+    <div fxLayout="row" fxLayoutAlign="center center" fxFill>
       <!-- <ng-content select=".title"></ng-content> -->
-      <mat-card>
+      <mat-card style="padding: 45px">
         <mat-card-title><ng-content select=".title"></ng-content></mat-card-title>
         <mat-card-content>
             <div fxLayout="column" fxLayoutAlign="start strech" fxLayoutGap="5px">
