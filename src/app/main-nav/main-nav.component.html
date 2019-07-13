@@ -7,11 +7,11 @@
     <mat-nav-list>
       <a mat-list-item href="#" [routerLink]="['/home']">Home</a>
       <a mat-list-item href="#"
-         *ngIf="(isHandset$ | async)"
+         *ngIf="(isHandset$ | async) && !(user$ | async)?.authenticated"
          [routerLink]="['/auth/login']" #rlaHome="routerLinkActive"
          [routerLinkActive]="['is-active']">Login</a>
       <a mat-list-item href="#"
-          *ngIf="(isHandset$ | async)"
+          *ngIf="(isHandset$ | async) && !(user$ | async)?.authenticated"
           #rlaHome="routerLinkActive"
          [routerLinkActive]="['is-active']"
          [routerLink]="['/auth/register']">Register</a>
@@ -76,16 +76,16 @@
                     [routerLinkActive]="['is-active']">Contact me</button>
         </div>
         <div fxLayoutGap="10px">
-            <button *ngIf="!(isHandset$ | async)" mat-flat-button
+            <button *ngIf="!(isHandset$ | async) && !(user$ | async)?.authenticated" mat-flat-button
                     [color]="rlaLogin.isActive ? 'accent' : false"
                     [routerLink]="['/auth/login']" #rlaLogin="routerLinkActive"
                     [routerLinkActiveOptions]="{exact: true}"
                     [routerLinkActive]="['is-active']">Login</button>
-            <button *ngIf="!(isHandset$ | async)" mat-flat-button
+            <button *ngIf="!(isHandset$ | async) && !(user$ | async)?.authenticated" mat-flat-button
                     [color]="rlaRegister.isActive ? 'accent' : false"
                     [routerLink]="['/auth/register']" #rlaRegister="routerLinkActive"
                     [routerLinkActiveOptions]="{exact: true}"
-                    [routerLinkActive]="['is-active']">Sign Up</button>
+                    [routerLinkActive]="['is-active']">Register</button>
             <mat-menu #appMenu="matMenu">
               <button mat-menu-item (click)="activateDarkTheme()">Dark theme</button>
               <button mat-menu-item (click)="getData()">Light theme</button>

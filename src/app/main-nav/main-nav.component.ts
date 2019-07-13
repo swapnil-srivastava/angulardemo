@@ -46,10 +46,10 @@ export class MainNavComponent implements OnInit {
     this.otherTheme = !this.otherTheme;
     // const cUser = this.af.auth.currentUser;
     // const user$ = this.afdb.list(`users/${cUser.uid}`).push({name: 'Swapnil ', email: 'check1@test.com'});
-    this.fs.collection(`details`).add({
-      name: 'Swapnil Srivastava',
-      email: 'swapnil@firestore.com'
-    });
+    // this.fs.collection(`details`).add({
+    //   name: 'Swapnil Srivastava',
+    //   email: 'swapnil@firestore.com'
+    // });
   }
 
   getData() {
@@ -58,7 +58,9 @@ export class MainNavComponent implements OnInit {
     //   console.log('user', val); // working
     // });
 
-    const user$ = this.fs.collection('details').valueChanges().subscribe(val => console.log('val in firestore', val)); // working firestore
+    // const user$ = this.fs.collection('details').valueChanges().subscribe(val => console.log('val in firestore', val)); // working firestore
+    // const us$ = this.fs.collection('details').snapshotChanges()
+    //                     .subscribe(val => console.log('val in snapshot firestore', val)); // working firestore
   }
 
   async logout() {
