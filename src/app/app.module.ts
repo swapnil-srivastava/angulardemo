@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { MainDashboardComponent } from './container/main-dashboard/main-dashboard.component';
 
 // Angular Material Module
 import {

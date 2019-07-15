@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { MainDashboardComponent } from './container/main-dashboard/main-dashboard.component';
 import { AboutMeComponent } from './container/about-me/about-me.component';
 import { ContactMeComponent } from './container/contact-me/contact-me.component';
 import { PaymentPageComponent } from './container/payment-page/payment-page.component';
